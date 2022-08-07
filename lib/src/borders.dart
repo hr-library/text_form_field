@@ -18,8 +18,9 @@ class HRBorders {
   );
 
   static const UnderlineInputBorder primaryInputBorder = UnderlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(4.0)),
     borderSide: BorderSide(
-      width: 1.0,
+      width: 1.5,
       style: BorderStyle.solid,
     ),
   );
