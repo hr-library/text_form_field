@@ -64,6 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
             HrCustomTextFormField(
               textInputType: TextInputType.text,
               labelText: 'Prénom',
+              errorText: 'Erreur',
             ),
             const SizedBox(
               height: 20,

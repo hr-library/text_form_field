@@ -17,6 +17,15 @@ class HRBorders {
     ),
   );
 
+  static const OutlineInputBorder errorBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(4.0)),
+    borderSide: BorderSide(
+      width: 1.0,
+      style: BorderStyle.solid,
+      color: Colors.red,
+    ),
+  );
+
   static const UnderlineInputBorder primaryInputBorder = UnderlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(4.0)),
     borderSide: BorderSide(

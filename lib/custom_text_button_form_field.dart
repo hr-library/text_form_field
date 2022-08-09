@@ -25,6 +25,7 @@ class HrCustomButtonFormField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final InputBorder border;
   final InputBorder enabledBorder;
+  final InputBorder errorBorder;
   final InputBorder focusedBorder;
   final double? width;
   final double? height;
@@ -52,6 +53,7 @@ class HrCustomButtonFormField extends StatelessWidget {
     this.textFormFieldMargin,
     this.hasTitle = false,
     this.border = HRBorders.primaryInputBorder,
+    this.errorBorder = HRBorders.errorBorder,
     this.focusedBorder = HRBorders.focusedBorder,
     this.enabledBorder = HRBorders.enabledBorder,
     this.hintText,
@@ -95,6 +97,8 @@ class HrCustomButtonFormField extends StatelessWidget {
                 labelText: labelText,
                 labelStyle: labelStyle,
                 border: border,
+                errorBorder: errorBorder,
+                focusedErrorBorder: errorBorder,
                 enabledBorder: enabledBorder,
                 focusedBorder: focusedBorder,
                 prefixIcon: hasPrefixIcon ? prefixIcon : null,
