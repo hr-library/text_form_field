@@ -94,6 +94,7 @@ class HrCustomAutocompleteTextFormField extends StatelessWidget {
               controller: controller,
               textChanged: textChanged,
               textSubmitted: textSubmitted,
+              clearOnSubmit: false,
               decoration: InputDecoration(
                 errorText: errorText,
                 errorStyle: errorStyle,
