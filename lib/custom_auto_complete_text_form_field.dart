@@ -34,7 +34,7 @@ class HrCustomAutocompleteTextFormField extends StatelessWidget {
   final TextStyle? errorStyle;
   final List<String> suggestions;
 
-  HrCustomAutocompleteTextFormField({
+  const HrCustomAutocompleteTextFormField({
     required this.suggestions,
     required this.textInputType,
     this.prefixIcon,
@@ -67,60 +67,64 @@ class HrCustomAutocompleteTextFormField extends StatelessWidget {
     this.height,
     this.controller,
     this.suffixPress,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            hasTitleIcon ? titleIcon! : Container(),
-            hasTitle ? Text(title!, style: titleStyle) : Container(),
-          ],
-        ),
-//        hasTitle ? SpaceH4() : Container(),
-        Container(
-          width: width,
-          height: height,
-          margin: textFormFieldMargin,
-          child: SimpleAutoCompleteTextField(
-            keyboardType: textInputType,
-            controller: controller,
-            decoration: InputDecoration(
-              errorText: errorText,
-              errorStyle: errorStyle,
-              contentPadding: contentPadding,
-              labelText: labelText,
-              labelStyle: labelStyle,
-              border: border,
-              errorBorder: errorBorder,
-              focusedErrorBorder: errorBorder,
-              enabledBorder: enabledBorder,
-              focusedBorder: focusedBorder,
-              prefixIcon: hasPrefixIcon ? prefixIcon : null,
-              hintText: hintText,
-              suffix: hasSuffixIcon
-                  ? InkWell(
-                      onTap: suffixPress,
-                      child: obscured
-                          ? const Icon(
-                              Icons.visibility,
-                            )
-                          : const Icon(
-                              Icons.visibility_off,
-                            ),
-                    )
-                  : null,
-              hintStyle: hintTextStyle,
-            ),
-            style: textStyle,
-            suggestions: suggestions,
-            key: GlobalKey(),
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              hasTitleIcon ? titleIcon! : Container(),
+              hasTitle ? Text(title!, style: titleStyle) : Container(),
+            ],
           ),
-        ),
-      ],
+//        hasTitle ? SpaceH4() : Container(),
+          Container(
+            width: width,
+            height: height,
+            margin: textFormFieldMargin,
+            child: SimpleAutoCompleteTextField(
+              keyboardType: textInputType,
+              controller: controller,
+              decoration: InputDecoration(
+                errorText: errorText,
+                errorStyle: errorStyle,
+                contentPadding: contentPadding,
+                labelText: labelText,
+                labelStyle: labelStyle,
+                border: border,
+                errorBorder: errorBorder,
+                focusedErrorBorder: errorBorder,
+                enabledBorder: enabledBorder,
+                focusedBorder: focusedBorder,
+                prefixIcon: hasPrefixIcon ? prefixIcon : null,
+                hintText: hintText,
+                suffix: hasSuffixIcon
+                    ? InkWell(
+                        onTap: suffixPress,
+                        child: obscured
+                            ? const Icon(
+                                Icons.visibility,
+                              )
+                            : const Icon(
+                                Icons.visibility_off,
+                              ),
+                      )
+                    : null,
+                hintStyle: hintTextStyle,
+              ),
+              style: textStyle,
+              suggestions: suggestions,
+              key: GlobalKey(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

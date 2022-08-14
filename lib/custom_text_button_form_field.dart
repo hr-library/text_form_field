@@ -35,7 +35,7 @@ class HrCustomButtonFormField extends StatelessWidget {
   final String? errorText;
   final TextStyle? errorStyle;
 
-  HrCustomButtonFormField({
+  const HrCustomButtonFormField({
     required this.text,
     required this.press,
     this.prefixIcon,
@@ -69,63 +69,67 @@ class HrCustomButtonFormField extends StatelessWidget {
     this.height = 55,
     this.controller,
     this.suffixPress,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            hasTitleIcon ? titleIcon! : Container(),
-            hasTitle ? Text(title!, style: titleStyle) : Container(),
-          ],
-        ),
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              hasTitleIcon ? titleIcon! : Container(),
+              hasTitle ? Text(title!, style: titleStyle) : Container(),
+            ],
+          ),
 //        hasTitle ? SpaceH4() : Container(),
-        InkWell(
-          onTap: press,
-          child: Container(
-            width: width,
-            height: height,
-            margin: textFormFieldMargin,
-            child: InputDecorator(
-              decoration: InputDecoration(
-                errorText: errorText,
-                errorStyle: errorStyle,
-                contentPadding: contentPadding,
-                labelText: labelText,
-                labelStyle: labelStyle,
-                border: border,
-                errorBorder: errorBorder,
-                focusedErrorBorder: errorBorder,
-                enabledBorder: enabledBorder,
-                focusedBorder: focusedBorder,
-                prefixIcon: hasPrefixIcon ? prefixIcon : null,
-                hintText: hintText,
-                suffix: hasSuffixIcon
-                    ? InkWell(
-                        onTap: suffixPress,
-                        child: obscured
-                            ? const Icon(
-                                Icons.visibility,
-                              )
-                            : const Icon(
-                                Icons.visibility_off,
-                              ),
-                      )
-                    : null,
-                hintStyle: hintTextStyle,
-              ),
-              child: Text(
-                text,
-                textAlign: TextAlign.center,
-                style: textStyle,
+          InkWell(
+            onTap: press,
+            child: Container(
+              width: width,
+              height: height,
+              margin: textFormFieldMargin,
+              child: InputDecorator(
+                decoration: InputDecoration(
+                  errorText: errorText,
+                  errorStyle: errorStyle,
+                  contentPadding: contentPadding,
+                  labelText: labelText,
+                  labelStyle: labelStyle,
+                  border: border,
+                  errorBorder: errorBorder,
+                  focusedErrorBorder: errorBorder,
+                  enabledBorder: enabledBorder,
+                  focusedBorder: focusedBorder,
+                  prefixIcon: hasPrefixIcon ? prefixIcon : null,
+                  hintText: hintText,
+                  suffix: hasSuffixIcon
+                      ? InkWell(
+                          onTap: suffixPress,
+                          child: obscured
+                              ? const Icon(
+                                  Icons.visibility,
+                                )
+                              : const Icon(
+                                  Icons.visibility_off,
+                                ),
+                        )
+                      : null,
+                  hintStyle: hintTextStyle,
+                ),
+                child: Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: textStyle,
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

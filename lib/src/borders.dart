@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../text_field.dart';
 
 class HRBorders {
   static const OutlineInputBorder enabledBorder = OutlineInputBorder(

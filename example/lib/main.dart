@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:text_field/text_field.dart';
 
@@ -54,14 +55,14 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            HrCustomTextFormField(
+            const HrCustomTextFormField(
               textInputType: TextInputType.text,
               labelText: 'Nom',
             ),
             const SizedBox(
               height: 20,
             ),
-            HrCustomTextFormField(
+            const HrCustomTextFormField(
               textInputType: TextInputType.text,
               labelText: 'Prénom',
               errorText: 'Erreur',
@@ -69,10 +70,10 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 20,
             ),
-            HrCustomAutocompleteTextFormField(
+            const HrCustomAutocompleteTextFormField(
               textInputType: TextInputType.text,
               labelText: 'Ville',
-              suggestions: const ['Paris', 'Lyon', 'Marseille'],
+              suggestions: ['Paris', 'Lyon', 'Marseille'],
             ),
             const SizedBox(
               height: 20,
@@ -93,7 +94,9 @@ class _MyHomePageState extends State<MyHomePage> {
             HrCustomButtonFormField(
               labelText: 'Valider',
               press: () {
-                print('Pressed');
+                if (kDebugMode) {
+                  print('Pressed');
+                }
               },
               text: 'Valider',
             ),
