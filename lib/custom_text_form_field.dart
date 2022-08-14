@@ -19,6 +19,7 @@ class HrCustomTextFormField extends StatelessWidget {
   final bool hasTitleIcon;
   final Widget? titleIcon;
   final TextInputType? textInputType;
+  final ValueChanged<String>? onChanged;
   final FormFieldValidator<String>? validator;
   final List<TextInputFormatter>? inputFormatters;
   final InputBorder border;
@@ -59,6 +60,7 @@ class HrCustomTextFormField extends StatelessWidget {
     this.hasSuffixPasswordIcon = false,
     this.obscured = false,
     this.textInputType,
+    this.onChanged,
     this.validator,
     this.inputFormatters,
     this.width,
@@ -90,6 +92,7 @@ class HrCustomTextFormField extends StatelessWidget {
               style: textStyle,
               controller: controller,
               keyboardType: textInputType,
+              onChanged: onChanged,
               validator: validator,
               inputFormatters: inputFormatters,
               decoration: InputDecoration(
