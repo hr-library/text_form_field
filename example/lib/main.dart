@@ -70,10 +70,17 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 20,
             ),
-            const HrCustomAutocompleteTextFormField(
+            HrCustomAutocompleteTextFormField(
               textInputType: TextInputType.text,
               labelText: 'Ville',
-              suggestions: ['Paris', 'Lyon', 'Marseille'],
+              textChanged: (String text) {
+                print(text);
+              },
+              textSubmitted: (String text) {
+                print('*************************');
+                print(text);
+              },
+              suggestions: const ['Paris', 'Lyon', 'Marseille'],
             ),
             const SizedBox(
               height: 20,

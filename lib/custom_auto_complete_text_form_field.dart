@@ -18,7 +18,7 @@ class HrCustomAutocompleteTextFormField extends StatelessWidget {
   final bool hasTitleIcon;
   final Widget? titleIcon;
   final TextInputType textInputType;
-  final ValueChanged<String>? onChanged;
+  final StringCallback? textChanged, textSubmitted;
   final FormFieldValidator<String>? validator;
   final List<TextInputFormatter>? inputFormatters;
   final InputBorder border;
@@ -60,7 +60,8 @@ class HrCustomAutocompleteTextFormField extends StatelessWidget {
     this.hasPrefixIcon = false,
     this.hasSuffixIcon = false,
     this.obscured = false,
-    this.onChanged,
+    this.textChanged,
+    this.textSubmitted,
     this.validator,
     this.inputFormatters,
     this.width,
@@ -91,6 +92,8 @@ class HrCustomAutocompleteTextFormField extends StatelessWidget {
             child: SimpleAutoCompleteTextField(
               keyboardType: textInputType,
               controller: controller,
+              textChanged: textChanged,
+              textSubmitted: textSubmitted,
               decoration: InputDecoration(
                 errorText: errorText,
                 errorStyle: errorStyle,
