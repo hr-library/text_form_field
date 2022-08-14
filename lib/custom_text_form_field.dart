@@ -120,7 +120,10 @@ class HrCustomTextFormField extends StatelessWidget {
                               ),
                       )
                     : hasSuffixIcon
-                        ? suffixIcon
+                        ? InkWell(
+                            onTap: suffixPress,
+                            child: suffixIcon,
+                          )
                         : null,
                 hintStyle: hintTextStyle,
               ),
