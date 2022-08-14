@@ -14,6 +14,7 @@ class HrCustomTextFormField extends StatelessWidget {
   final bool obscured;
   final bool hasPrefixIcon;
   final bool hasSuffixIcon;
+  final bool hasSuffixPasswordIcon;
   final bool hasTitle;
   final bool hasTitleIcon;
   final Widget? titleIcon;
@@ -56,6 +57,7 @@ class HrCustomTextFormField extends StatelessWidget {
     this.labelText,
     this.hasPrefixIcon = false,
     this.hasSuffixIcon = false,
+    this.hasSuffixPasswordIcon = false,
     this.obscured = false,
     this.textInputType,
     this.onChanged,
@@ -106,7 +108,7 @@ class HrCustomTextFormField extends StatelessWidget {
                 focusedBorder: focusedBorder,
                 prefixIcon: hasPrefixIcon ? prefixIcon : null,
                 hintText: hintText,
-                suffix: hasSuffixIcon
+                suffix: hasSuffixPasswordIcon
                     ? InkWell(
                         onTap: suffixPress,
                         child: obscured
@@ -117,7 +119,9 @@ class HrCustomTextFormField extends StatelessWidget {
                                 Icons.visibility_off,
                               ),
                       )
-                    : null,
+                    : hasSuffixIcon
+                        ? suffixIcon
+                        : null,
                 hintStyle: hintTextStyle,
               ),
               obscureText: obscured,
