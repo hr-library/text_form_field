@@ -122,7 +122,7 @@ class HrCustomButtonFormField extends StatelessWidget {
                 ),
                 child: Text(
                   text,
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.start,
                   style: textStyle,
                 ),
               ),
