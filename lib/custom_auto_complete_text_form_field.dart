@@ -36,7 +36,7 @@ class HrCustomAutocompleteTextFormField extends StatelessWidget {
 
   const HrCustomAutocompleteTextFormField({
     required this.suggestions,
-    required this.textInputType,
+    this.textInputType = TextInputType.text,
     this.prefixIcon,
     this.suffixIcon,
     this.textStyle,
@@ -90,6 +90,7 @@ class HrCustomAutocompleteTextFormField extends StatelessWidget {
             height: height,
             margin: textFormFieldMargin,
             child: SimpleAutoCompleteTextField(
+              textInputAction: TextInputAction.send,
               keyboardType: textInputType,
               controller: controller,
               textChanged: textChanged,
@@ -111,13 +112,7 @@ class HrCustomAutocompleteTextFormField extends StatelessWidget {
                 suffix: hasSuffixIcon
                     ? InkWell(
                         onTap: suffixPress,
-                        child: obscured
-                            ? const Icon(
-                                Icons.visibility,
-                              )
-                            : const Icon(
-                                Icons.visibility_off,
-                              ),
+                        child: suffixIcon,
                       )
                     : null,
                 hintStyle: hintTextStyle,

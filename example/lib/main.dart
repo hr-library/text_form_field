@@ -52,8 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
             const HrCustomTextFormField(
               textInputType: TextInputType.text,
